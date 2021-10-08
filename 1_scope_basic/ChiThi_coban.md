@@ -1,15 +1,16 @@
-# 1.Các chỉ thị cơ bản
+# 1.directive basic
 
-**ng-app:** Dùng để  đánh dấu bắt đầu app Angular.
+**ng-app:** Used directive scope start-end an application Angular.
    
-**ng-controller:** Tạo ra 1 scope trong 1 vùng 1 thẻ html.
+**ng-controller:** Used directive scope start scope controller in one pair of tag html.
 
-**ng-model:**  Dùng để  **Bind** dữ liệu 2 chiều.
+**ng-model:**  Use  **Bind** data 2 way.
 
-**ng-bind:** Bind dữ liệu 1 chiều.
+**ng-bind:** Bind data 1 way.
 
-## Chú ý:
-- Khi bị lỗi thì cần xem đã add thư viện AngularJs chưa? 
-- Sau khi xác nhận đã add thư viện cần kiểm tra lại scope(phạm vi) của **ng-app, ng-controller,** phạm vi của **scope**
+## Attention:
+- while one error is must checked added framework AngularJs? if not added please add Angular by tag script use attribute scr or script cdn.
+- after confirm  added framework you have check again scope(phạm vi) of **ng-app, ng-controller,**  **scope** has one scope is 1 pair tag html inclusion body tab.
+
  
 
