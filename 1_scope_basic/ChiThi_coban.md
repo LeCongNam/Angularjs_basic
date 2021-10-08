@@ -10,7 +10,7 @@
 
 ## Attention:
 - while one error is must checked added framework AngularJs? if not added please add Angular by tag script use attribute scr or script cdn.
-- after confirm  added framework you have check again scope(phạm vi) of **ng-app, ng-controller,**  **scope** has one scope is 1 pair tag html inclusion body tab.
+- after confirm  added framework you have check again scope(phạm vi) of **ng-app, ng-controller,**  **scope** has one scope is 1 pair tag html inclusion body tag.
 
  
 
