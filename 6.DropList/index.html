@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        
+    </head>
+    <body ng-app="app" ng-controller="control">
+        <!-- *********Cách 1*********** -->
+        <!-- <select name="country" id="">
+            <option value="">Chọn Quốc gia của bạn</option>
+            <option ng-repeat=" country in countries" value="{{country}}">
+                {{country}}
+            </option>
+        </select> -->
+
+          <!-- *********Cách 2*********** -->
+        <select name="country" '
+                ng-options =" y.name in (x,y) in countries" 
+                id="">
+           
+        </select>
+        
+
+
+        <script>
+           /* var app = angular.module('app', []);
+            app.controller('control',function($scope){
+             $scope.countries = [
+                 'việt Nam',
+                 'Trung Quốc',
+                 'Thái Lan',
+             ];
+            })*/
+
+            // cách 2
+            var app = angular.module('app', []);
+            app.controller('control',function($scope){
+             $scope.countries = {
+                 id:'việt Nam',
+                 name:'Trung Quốc',
+                 current:'Thái Lan',
+             }
+            })
+
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+
+<body>
+
+    <div ng-app="app">
+
+        <!-- kiểm tra số nguyên tố -->
+        <form action="" name="frmUsr">
+            <span>Số chẵn</span>
+            <input type="text" name="txtAge" ng-model="age" id="txtAge" even-number>
+            <span ng-show=" frmUsr.txtAge.$invalid ">
+                Vui lòng nhập số chẵn <br>
+
+            </span>
+        </form>
+
+    </div>
+
+    <script>
+        var app = angular.module('app', []);
+
+  
+        app.directive('evenNumber', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, element, attr, mCtrl) {
+                     function fnValidate(value) {
+                        //    code validate
+                        if (parseInt(value) % 2 == 0) {
+                            mCtrl.$setValidity('charE', true);
+                        } else {
+                            mCtrl.$setValidity('charE', false);
+                        }
+                        return value
+                    }
+                    mCtrl.$parsers.push(fnValidate)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

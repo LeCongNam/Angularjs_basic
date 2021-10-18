@@ -10,7 +10,7 @@
 **+ Sự kiện chỉ dùng được cho thẻ input**
 - ng-focus
 - ng-blur
-- ng-change: cần có ng-model để bind dữ liệu
+- ng-change
 
 ### 2.Sự kiện chuột
 -  ng-mousedown

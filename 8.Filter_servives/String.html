@@ -8,23 +8,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 
 </head>
-<body>
-    <div ng-app="app">
+<body ng-app="app">
+
         <div ng-controller="control">
-            <p>{{count}}</p>
-            <p ng-cut="events()">hãy thao tác tại đây</p>
+            <div>{{ user | lowercase }}</div>
+            <div>{{}}</div>
         </div>
-    </div>
+
 
 
     <script>
-        angular.module("app",[]).controller('control',function($scope){
-            $scope.count=0;
-            $scope.events= function(){
-                $scope.count++;
-                
-            }
-        })
+       var app = angular.module('app', []);
+       app.controller('control',function($scope){
+        $scope.user = 'Lê Công Nam';
+       })
     </script>
 </body>
 </html>

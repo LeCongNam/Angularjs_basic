@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.js"></script>
+
+</head>
+
+<body ng-app="app">
+
+    <form action="" name="frmPrime">
+        <label for="prime">Nhập số nguyên tố</label><br>
+        <input type="text" ng-model="prime" name="prime" id="prime" is-prime><br>
+        <span ng-show=" frmPrime.prime.$invalid "> Vui lòng nhập số nguyên tố</span><br>
+
+    </form>
+
+
+
+    <script>
+        var app = angular.module('app', [])
+        // app.directive('isPrime', function () {
+        //     return {
+        //         require: 'ngModel',
+        //         link: function (scope, element, attr, mCtrl) {
+        //             function fnValidate(value) {
+        //                 //    code validate
+        //                 value = parseInt(value)
+        //                 if (checkPrime(value)) {
+        //                     mCtrl.$setValidity('charE', true);
+        //                 } else {
+        //                     mCtrl.$setValidity('charE', false);
+        //                 }
+        //                 return value
+        //             }
+        //             mCtrl.$parsers.push(fnValidate)
+        //         }
+        //     }
+        // })
+
+        app.directive('isPrime', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, element, attr, mCtrl) {
+                    function fnValidate(value) {
+                        value = parseInt(value)
+                        if (checkPrime(value)) {
+                            mCtrl.$setValidity('charE', true);
+                        } else {
+                            mCtrl.$setValidity('charE', false);
+                        }
+                        return value
+                    }
+                    mCtrl.$parsers.push(fnValidate)
+                }
+            }
+        })
+
+
+
+        function checkPrime(number) {
+            let sum = 0;
+            for (let i = 1; i <= number; i++) {
+                if (number % i == 0) {
+                    sum++
+                }
+            }
+
+            if (sum == 2) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

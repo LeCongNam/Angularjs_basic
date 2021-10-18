@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        button {
+            height: 32px;
+            width: 100px;
+            position: absolute;
+            top: 20px;
+            right: 170px;
+            border-radius: 6px;
+            color: greenyellow;
+            border: 1px solid transparent;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            box-sizing: border-box;
+            background-color: #ffff;
+        }
+
+        .btn-primary{
+            border-color: blue;
+        }
+      
+      
+    </style>
+</head>
+
+<body ng-app="app">
+    <!-- ******* bộ lọc limitTo ********** -->
+    <!-- <div ng-controller="control">
+        <ul>
+            <li ng-repeat=" sv in sinhvien | limitTo:1:1 ">
+                {{sv}}
+            </li>
+        </ul>
+    </div> -->
+
+
+    <!-- ******* bộ lọc oderBy ********** -->
+    <div ng-controller="control">
+        <ul>
+            <li ng-repeat=" sv in sinhvien | filter: {name:'nam'}">
+                {{sv.name}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        angular.module('app', []).controller('control', function ($scope) {
+            //  $scope.sinhvien = [
+            //      'Lê Công Nam',
+            //      'Phan Đình Khôi',
+            //      'Nguyễn Minh Khoa',
+            //      'Lê Tuấn Anh',
+            //  ];
+
+      
+            $scope.sinhvien = [
+                { name: 'Lê Công Nam' },
+                { name: 'Phan Đình Khôi' },
+                { name: 'Nguyễn Minh Khoa' },
+                { name: 'Lê Tuấn Anh' },
+            ];
+        })
+    </script>
+</body>
+
+</html>

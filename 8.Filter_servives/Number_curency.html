@@ -11,19 +11,15 @@
 <body>
     <div ng-app="app">
         <div ng-controller="control">
-            <p>{{count}}</p>
-            <p ng-cut="events()">hãy thao tác tại đây</p>
+            <div >Currency: {{ price | currency :'$': 2}}</div>
+            <div >Number: {{ price | number : 2}}</div>
         </div>
     </div>
 
-
     <script>
-        angular.module("app",[]).controller('control',function($scope){
-            $scope.count=0;
-            $scope.events= function(){
-                $scope.count++;
-                
-            }
+        var app = angular.module('app', []);
+        app.controller('control',function($scope){
+         $scope.price = 1.23232323;
         })
     </script>
 </body>

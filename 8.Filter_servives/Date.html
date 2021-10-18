@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+
+<body>
+
+    <div ng-app="app">
+        <div ng-controller="control">
+            <div>{{ now | date: 'short' }}</div>
+            <div>{{ timeline | date:'HH-mm-ss a' }}</div>
+        </div>
+    </div>
+
+    <script>
+        angular.module('app', []).controller('control', function ($scope,$timeout) {
+            $scope.now = new Date();
+
+            $scope.timeline = "loading timeline..."; // initialise the time variable
+            $scope.tickInterval = 1000 //ms
+
+            var tick = function () {
+                $scope.timeline = Date.now() // get the current time
+                $timeout(tick, $scope.tickInterval); // reset the timer
+            }
+
+            // Start the timer
+            $timeout(tick, $scope.tickInterval);
+
+
+        })
+    </script>
+
+</body>
+
+</html>

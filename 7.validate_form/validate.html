@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        input {
+            outline: none;
+
+        }
+
+        input.ng-valid {
+            border: 1px solid greenyellow;
+        }
+
+        input.ng-invalid {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-app="">
+        <form action="" name="frmUser">
+            <label for="txtName"> full Name</label>
+            <input type="text" name="txtName" ng-model="fullName" id="fullName" required>
+            <span ng-hide="frmUser.txtName.$valid">Vui lòng nhập họ tên</span>
+            <div>{{frmUser.txtName.$valid}}</div>
+
+            <label for="email"> full Name</label>
+            <input type="email" name="email" ng-model="email" id="email" required>
+            <span ng-hide="frmUser.email.$valid">Vui lòng nhập email</span>
+            <div>{{frmUser.email.$valid}}</div>
+
+        </form>
+    </div>
+
+    <script>
+        var app = angular.module('app', []);
+        app.app.directive('evenNumber', function () {
+            return {
+                require: 'ng-model',
+                link: function (scope, element, attr, mCtrl) {
+                    return function fnValidate(value) {
+                        //code of you  
+                        return value
+                    }
+                    mCtrl.parsers.push(fnValidate)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -6,24 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.js"></script>
 </head>
-<body>
-    <div ng-app="app">
-        <div ng-controller="control">
-            <p>{{count}}</p>
-            <p ng-cut="events()">hãy thao tác tại đây</p>
-        </div>
+<body ng-app="app"> 
+    <div ng-controller="control">
+        <div>{{now | date: 'hh:mm:ss'}}</div>
     </div>
 
-
     <script>
-        angular.module("app",[]).controller('control',function($scope){
-            $scope.count=0;
-            $scope.events= function(){
-                $scope.count++;
-                
-            }
+        angular.module('app', []).controller('control',function($scope,$interval ){
+         $interval(function () {
+             $scope.now = new Date();
+         },1000)
         })
     </script>
 </body>
